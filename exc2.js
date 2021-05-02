@@ -5,8 +5,8 @@ var options = {
     port: 161,
     disableAuthorization: true,
     accessControlModelType: snmp.AccessControlModelType.None,
-    engineID: "8000B98380111111111111111111111111", // where the X's are random hex digits
-    address: "127.0.0.1",
+    engineID: "8000B98380111111111111111111111113", // where the X's are random hex digits
+    address: "10.175.214.8",
     transport: "udp4"
 };
 
@@ -23,7 +23,7 @@ agent = snmp.createAgent (options, callback);
 var myScalarProvider = {
     name: "systemForwardPower",
     type: snmp.MibProviderType.Scalar,
-    oid: "1.3.6.1.2.1.1.1",
+    oid: "1.3.6.1.4.1.25026.13.1.1.9",
     scalarType: snmp.ObjectType.Integer32,
     maxAccess: snmp.MaxAccess["read-write"],
     handler: function (mibRequest) {
@@ -33,7 +33,7 @@ var myScalarProvider = {
 };
 var mib = agent.getMib ();
 mib.registerProvider (myScalarProvider);
-mib.setScalarValue ("systemForwardPower", 3800);
+mib.setScalarValue ("systemForwardPower", 0);
 mib.dump ();
 
 
