@@ -1,6 +1,7 @@
 var snmp = require ("net-snmp");
 
-//MANAGER
+function intervalFunc() {
+    //MANAGER
 var exc1;
 var exc2;
 
@@ -84,10 +85,16 @@ function updateMib() {
     mib.registerProvider (myScalarProvider);
     mib.setScalarValue ("systemForwardPower", maxValue);
     mib.dump ();
+    agent.close ()
 }
 
 setTimeout(max, 1000);
 setTimeout(updateMib, 1500);
+  }
+  
+setInterval(intervalFunc, 10000);
+
+
 
 
 

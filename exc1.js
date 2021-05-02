@@ -33,7 +33,7 @@ var myScalarProvider = {
 };
 var mib = agent.getMib ();
 mib.registerProvider (myScalarProvider);
-mib.setScalarValue ("systemForwardPower", 3600);
+mib.setScalarValue ("systemForwardPower", 3200);
 mib.dump ();
 
 
