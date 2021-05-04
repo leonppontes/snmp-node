@@ -24,7 +24,7 @@ session1.get (oids1, function (error, varbinds) {
             }
         }
     }
-    session1.close ();
+    
 });
 
 session2.get (oids2, function (error, varbinds) {
@@ -40,7 +40,7 @@ session2.get (oids2, function (error, varbinds) {
             }
         }
     } 
-    session2.close ();
+    
 });
 
 function max() {
@@ -85,11 +85,17 @@ function updateMib() {
     mib.registerProvider (myScalarProvider);
     mib.setScalarValue ("systemForwardPower", maxValue);
     mib.dump ();
+}
+
+function closeAll(){
+    session1.close ();
+    session2.close ();
     agent.close ()
 }
 
-setTimeout(max, 1000);
-setTimeout(updateMib, 1500);
+setTimeout(max, 100);
+setTimeout(updateMib, 150);
+setTimeout(closeAll, 9500);
   }
   
 setInterval(intervalFunc, 10000);
