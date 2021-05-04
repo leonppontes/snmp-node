@@ -54,7 +54,7 @@ var options = {
     disableAuthorization: true,
     accessControlModelType: snmp.AccessControlModelType.None,
     engineID: "8000B98380111111111111111111111111", // where the X's are random hex digits
-    address: "127.0.0.1",
+    address: null,
     transport: "udp4"
 };
 
